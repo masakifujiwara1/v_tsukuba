@@ -1,0 +1,14 @@
+<launch>
+  <arg name="calibration" default="$(find velodyne_pointcloud)/params/VLP16db.yaml" />
+  <arg name="manager" default="velodyne_pointcloud" />
+  <arg name="max_range" default="100.0" />
+  <arg name="min_range" default="0.9" />
+
+  <node pkg="velodyne_pointcloud" type="cloud_node" name="$(arg manager)">
+    <param name="model" value="VLP16"/>
+    <param name="calibration" value="$(arg calibration)"/>
+    <param name="max_range" value="$(arg max_range)"/>
+    <param name="min_range" value="$(arg min_range)"/>
+    <!-- <param name="frame_id" value="lrf_link"/> -->
+  </node>
+</launch>
